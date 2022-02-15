@@ -1,9 +1,11 @@
 const mongoDB = require("mongodb");
+require('dotenv').config();
 const { findUserById } = require("./users.js");
 const MongoClient = mongoDB.MongoClient;
-const mongoURL = "mongodb+srv://rutiayaso:abcdef1234@cluster0.uprzh.mongodb.net/socialMedia?retryWrites=true&w=majority"  || "mongodb://localhost:27017";
+const mongoURL = process.env.MONGOURL || "mongodb://localhost:27017";
 const ObjectId = mongoDB.ObjectId;
 const DATA_BASE = "socialMedia";
+
 
 const addToFollowings = async (req, res) => {
   const userToFollow = await findUserById(req.params.id);
