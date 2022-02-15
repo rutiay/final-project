@@ -1,5 +1,4 @@
 const mongoDB = require("mongodb");
-// const { findUserById } = require("./users");
 const MongoClient = mongoDB.MongoClient;
 const mongoURL = "mongodb+srv://rutiayaso:abcdef1234@cluster0.uprzh.mongodb.net/socialMedia?retryWrites=true&w=majority"  || "mongodb://localhost:27017";
 const ObjectId = mongoDB.ObjectId;
