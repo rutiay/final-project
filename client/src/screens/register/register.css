@@ -1,0 +1,28 @@
+.register {
+  width: 90%;
+  height: 70vh;
+  margin-left: 5%;
+}
+
+.registerText {
+  margin-left: 25%;
+}
+
+.registerBack {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 30px;
+  color: black;
+  cursor: pointer;
+}
+
+.registerError {
+  background-color: #f8b6e7;
+  color: red;
+  width: 90%;
+  text-align: center;
+  padding: 10px 0px;
+  border-radius: 15px;
+  margin-left: 5%;
+}

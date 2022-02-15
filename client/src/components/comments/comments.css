@@ -1,0 +1,23 @@
+.postContainerModal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.postImgModal {
+  width: 100%;
+}
+
+.newCommentContainer{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.newCommentInput{
+  border: none;
+
+}
+
+.newCommentInput:focus{
+  outline: none;
+}

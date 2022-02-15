@@ -1,18 +1,44 @@
-var express = require('express');
+const express = require("express");
 
-var router = express.Router();
+const router = express.Router();
+
+const {
+  findUser,
+  getUserById,
+  getAllUsers,
+  editUser,
+  getFriends,
+} = require("../utils/users.js");
+
+const { register, addDetails } = require("../utils/newUser.js");
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  const users = [{
-    "id": 1,
-    "name": "John Doe"
-  },
-  {
-    "id": 2,
-    "name": "Jane Doe"
-  }];
-  res.send(users);
+router.get("/", (req, res) => {
+  getAllUsers(req, res);
+});
+
+router.get("/newuser/:email", (req, res) => {
+  findUser(req, res);
+});
+
+router.get("/:id", (req, res) => {
+  getUserById(req, res);
+});
+
+router.patch("/:id/edit", (req, res) => {
+  editUser(req, res);
+});
+
+router.get("/friends/:id", (req, res) => {
+  getFriends(req, res);
+});
+
+router.post("/register", (req, res) => {
+  register(req, res);
+});
+
+router.patch("/details", (req, res) => {
+  addDetails(req, res);
 });
 
 module.exports = router;

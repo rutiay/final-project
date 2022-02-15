@@ -1,0 +1,20 @@
+.friendsListItem {
+  list-style-type: none;
+}
+
+.friendsListLink {
+  text-decoration: none;
+  color: black;
+}
+
+.friendsListLink:hover {
+  color: black;
+}
+
+.friendsListProfileImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}

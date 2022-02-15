@@ -1,0 +1,132 @@
+.navbarContainer {
+  width: 100%;
+  height: 50px;
+  background: rgb(12, 50, 85);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0%;
+  z-index: 1;
+}
+
+.navbarLeft {
+  flex: 3;
+}
+
+.navbarCenter {
+  flex: 5;
+}
+
+.searchBar {
+  width: 100%;
+  height: 30px;
+  background: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  font-size: 17px;
+  margin: 0px 10px;
+}
+
+.searchInput {
+  border: none;
+  width: 70%;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.navbarRight {
+  flex: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
+
+.navbarLink {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.navbarIcons {
+  display: flex;
+  font-size: 22px;
+}
+
+.navbarIconItem {
+  margin-right: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.navbarIconItem a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbarIconItem a:hover{
+  color: white;
+}
+
+.friendsIcon {
+  font-size: 24px;
+}
+
+.navbarIconBadge {
+  width: 15px;
+  width: 15px;
+  background: red;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.navbarUser {
+  display: flex;
+  align-items: center;
+}
+
+.navbarUser a {
+  text-decoration: none;
+  color: white;
+  margin-right: 15px;
+}
+
+.navbarUser a:hover{
+  color: white;
+}
+
+.navbarUserName {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.navbarProfileImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.navbarUserIcon{
+  font-size: 24px;
+}
+
+.navbarUserIcon:hover{
+  cursor: pointer;
+  color: red;
+}

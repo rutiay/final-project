@@ -1,0 +1,19 @@
+.imgOfUser {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.userName {
+  font-weight: 500;
+}
+
+.postComment {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgb(245, 241, 241);
+  color: black;
+  max-width: 300px;
+}

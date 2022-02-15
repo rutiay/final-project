@@ -1,0 +1,13 @@
+.searchIcon {
+    font-size: 17px;
+    margin: 0px 10px;
+  }
+  
+  .searchInput {
+    border: none;
+    width: 70%;
+  }
+  
+  .searchInput:focus {
+    outline: none;
+  }

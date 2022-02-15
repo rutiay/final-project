@@ -1,0 +1,171 @@
+
+GET http://localhost:3001/users
+
+###
+POST http://localhost:3001/register
+Content-Type: application/json
+
+{
+    "name": "User",
+    "lastName": "New",
+    "email": "newUser@gmail.com",
+    "friends": [],
+    "posts": [],
+}
+
+###
+PATCH http://localhost:3001/details
+Content-Type: application/json
+
+{
+    "email": "newUser@gmail.com",
+    "name": "New",
+    "lastName": "User",
+    "city": "Lod",
+    "about": "hello world",
+    "profilePicture": "profileLink1",
+    "coverPicture": "coverLink1"
+}
+
+###
+GET http://localhost:3001/users/newuser/girl@gmail.com
+
+###
+PATCH http://localhost:3001/follow/6200076070f50d59ca332ca4/follow
+Content-Type: application/json
+
+{
+    "_id": "6200080070f50d59ca332ca5"
+}
+
+###
+PATCH http://localhost:3001/follow/6200076070f50d59ca332ca4/unfollow
+Content-Type: application/json
+
+{
+    "_id": "6200080070f50d59ca332ca5"
+}
+
+###
+POST  http://localhost:3001/posts/create
+Content-Type: application/json
+
+{
+    "userId": "6200080070f50d59ca332ca5",
+    "description": "hello",
+    "likes": []
+}
+
+###
+PATCH http://localhost:3001/posts/61fbb45b7ab34f86073e7fbd
+Content-Type: application/json
+
+{
+    "userId": "61f962cafac4680ff6967db5",
+    "description": "hello world im from lod but im looking for a new place",
+}
+
+###
+DELETE  http://localhost:3001/posts/61fbb45b7ab34f86073e7fbd
+Content-Type: application/json
+
+{
+    "userId": "61f962cafac4680ff6967db5"
+}
+
+###
+PATCH http://localhost:3001/posts/61fbb4b57ab34f86073e7fc0/like
+Content-Type: application/json
+
+{
+    "_id": "61f962cafac4680ff6967db5"
+}
+
+
+###
+GET http://localhost:3001/posts/61fbb4b57ab34f86073e7fc0
+
+###
+GET  http://localhost:3001/posts/timeline/61f962cafac4680ff6967db5
+
+###
+GET http://localhost:3001/friends/6200080070f50d59ca332ca5
+
+###
+GET http://localhost:3001/users
+
+###
+PATCH http://localhost:3001/620412cfefc6a6b3bd015343/comment
+Content-Type: application/json
+
+{
+    "id": 1,
+    "userId": "61f962cafac4680ff6967db5",
+    "description": "cool pic..."
+}
+
+###
+DELETE  http://localhost:3001/620412cfefc6a6b3bd015343/comment
+Content-Type: application/json
+
+{
+    "id": 1,
+    "userId": "61f962cafac4680ff6967db5",
+    "description": "cool pic..."
+}
+
+###
+PATCH http://localhost:3001/user/6200080070f50d59ca332ca5/edit
+Content-Type: application/json
+
+{
+    "name": "boy",
+    "lastName": "one",
+    "about": "Hello World",
+    "city": "Lod"
+}
+
+###
+POST http://localhost:3001/conversation/new
+Content-Type: application/json
+
+{
+    "senderId": "62078220de07943172c826e3",
+    "receiverId": "6200076070f50d59ca332ca4"
+}
+
+###
+GET  http://localhost:3001/conversations/6200076070f50d59ca332ca4
+
+###
+POST http://localhost:3001/messages
+Content-Type: application/json
+
+{
+    "conversationId": "620782a5de07943172c826e4",
+    "senderId": "6200076070f50d59ca332ca4",
+    "message": "I'm fine, thanks."
+}
+
+###
+GET http://localhost:3001/messages/620782a5de07943172c826e4
+
+###
+GET http://localhost:3001/conversation/6200080070f50d59ca332ca5/6200076070f50d59ca332ca4
+
+###
+POST http://localhost:3001/comment
+Content-Type: application/json
+
+{
+    "postId": "62040abdefc6a6b3bd015340",
+    "senderId": "6200080070f50d59ca332ca5",
+    "comment": "I'm great!"
+}
+
+###
+GET http://localhost:3001/comment/62040abdefc6a6b3bd015340
+
+
+###
+GET http://localhost:3001/userComment/62091a40a9246caf5885e963
