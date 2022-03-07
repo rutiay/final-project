@@ -1,4 +1,3 @@
-import { REACT_APP_PUBLIC_FOLDER } from "../../logic/keys";
 // import { BsSearch, BsFillChatDotsFill } from "react-icons/bs";
 // import { IoMdNotifications } from "react-icons/io";
 import { AiFillHome, AiOutlineLogout } from "react-icons/ai";
@@ -74,8 +73,8 @@ const Navbar = ({ currentUser, setCurrentUser }) => {
             <img
               src={
                 currentUser?.profilePicture
-                  ? REACT_APP_PUBLIC_FOLDER + currentUser?.profilePicture
-                  : REACT_APP_PUBLIC_FOLDER + "user.png"
+                  ? currentUser?.profilePicture
+                  : "https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/user_hz8izs.png"
               }
               alt="profileImg"
               className="navbarProfileImg"

@@ -10,26 +10,8 @@ import "./App.css";
 
 
 const App = () => {
-  // const [users, setUsers] = useState([]);
   const [auth, setAuth] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
-
-  // useEffect(() => {
-  //   // Address should be replaced with FQDN of application and taken from ENV
-  //   const domain = process.env.REACT_APP_DOMAIN;
-  //   const http = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-  //   fetch(`${http}://${domain}/users`, {
-  //     headers: {
-  //       'Access-Control-Allow-Origin': '*',
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json'
-  //     }
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setUsers(data);
-  //     }).catch((err) => console.log(err));
-  // }, []);
 
   return (
     <div>

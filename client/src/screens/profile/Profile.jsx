@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import Navbar from "../../components/navbar/Navbar";
-// import Sidebar from "../../components/sidebar/Sidebar";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Feed from "../../components/feed/Feed";
 import Spinner from "../../components/spinner/Spinner";
 import "./profile.css";
-import { REACT_APP_PUBLIC_FOLDER } from "../../logic/keys";
 
 const Profile = ({ currentUser, setCurrentUser }) => {
   const [user, setUser] = useState({});
@@ -37,8 +35,8 @@ const Profile = ({ currentUser, setCurrentUser }) => {
                     className="profileCoverImg"
                     src={
                       user?.coverPicture
-                        ? REACT_APP_PUBLIC_FOLDER + user?.coverPicture
-                        : REACT_APP_PUBLIC_FOLDER + "cover.jpg"
+                        ? user?.coverPicture
+                        : "https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/cover_desqtj.webp"
                     }
                     alt="profileCoverImg"
                   />
@@ -46,8 +44,8 @@ const Profile = ({ currentUser, setCurrentUser }) => {
                     className="profileUserImg"
                     src={
                       user?.profilePicture
-                        ? REACT_APP_PUBLIC_FOLDER + user?.profilePicture
-                        : REACT_APP_PUBLIC_FOLDER + "user.png"
+                        ? user?.profilePicture
+                        : "https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/user_hz8izs.png"
                     }
                     alt="profileUserImg"
                   />

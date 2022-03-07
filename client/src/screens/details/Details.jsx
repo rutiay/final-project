@@ -40,31 +40,33 @@ const Details = ({ auth }) => {
       about,
     };
     if (profilePicture) {
-      const data = new FormData();
-      const fileName = Date.now() + profilePicture.name;
-      data.append("name", fileName);
-      data.append("file", profilePicture);
-      newUser.profilePicture = fileName;
-      try {
-          await axios.post("/upload", data);
-      } catch (err) {}
+      const formData = new FormData();
+      formData.append("file", profilePicture);
+      formData.append("upload_preset", "gmrptfso");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/doolsewfd/image/upload",
+        formData
+      );
+      newUser.profilePicture = response.data.url;
     }
     if (coverPicture) {
-      const data = new FormData();
-      const fileName = Date.now() + coverPicture.name;
-      data.append("name", fileName);
-      data.append("file", coverPicture);
-      newUser.coverPicture = fileName;
-      try {
-          await axios.post("/upload", data);
-      } catch (err) {}
+      const formData = new FormData();
+      formData.append("file", coverPicture);
+      formData.append("upload_preset", "gmrptfso");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/doolsewfd/image/upload",
+        formData
+      );
+      newUser.coverPicture = response.data.url;
     }
     try {
-        await axios.patch("/users/details", newUser);
-        setRedirectToHome(true);
+      await axios.patch("/users/details", newUser);
+      setRedirectToHome(true);
     } catch (err) {}
-  }
- 
+  };
+
   return (
     <>
       {!isLoading ? (
@@ -129,7 +131,7 @@ const Details = ({ auth }) => {
             <Button type="submit">Let's Go</Button>
           </Form>
           <img
-            src="media/detailsCover.jpg"
+            src="https://res.cloudinary.com/doolsewfd/image/upload/v1646679228/detailsCover_hmh8ia.jpg"
             alt="cover"
             className="detailsCover"
           />

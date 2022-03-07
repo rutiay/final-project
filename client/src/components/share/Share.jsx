@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { MdPermMedia, MdEmojiEmotions, MdCancel } from "react-icons/md";
-import { REACT_APP_PUBLIC_FOLDER } from "../../logic/keys";
 import "./share.css";
 
 const Share = ({ currentUser, posts, setPosts }) => {
@@ -23,14 +22,15 @@ const Share = ({ currentUser, posts, setPosts }) => {
       likes: [],
     };
     if (file) {
-      const data = new FormData();
-      const fileName = Date.now() + file.name;
-      data.append("name", fileName);
-      data.append("file", file);
-      newPost.img = fileName;
-      try {
-        await axios.post("/upload", data);
-      } catch (err) {}
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "gmrptfso");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/doolsewfd/image/upload",
+        formData
+      );
+      newPost.img = response.data.url;
     }
     if (description || file) {
       try {
@@ -50,8 +50,8 @@ const Share = ({ currentUser, posts, setPosts }) => {
             className="shareProfileImg"
             src={
               currentUser?.profilePicture
-                ? REACT_APP_PUBLIC_FOLDER + currentUser?.profilePicture
-                : REACT_APP_PUBLIC_FOLDER + "user.png"
+                ? currentUser?.profilePicture
+                : "https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/user_hz8izs.png"
             }
             alt="profileImg"
           />
@@ -79,6 +79,7 @@ const Share = ({ currentUser, posts, setPosts }) => {
           onSubmit={(e) => {
             submitHandler(e);
             setDescription("");
+            setFile(null);
           }}
         >
           <div className="shareOptions">

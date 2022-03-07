@@ -6,12 +6,10 @@ const logger = require('morgan');
 const cors = require('cors');
 const multer = require("multer");
 
-// const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const followRouter = require('./routes/follow');
 const postsRouter = require('./routes/posts');
 const commentsRouter = require("./routes/comments");
-// const uploadRouter = require("./routes/upload");
 
 const app = express();
 
@@ -29,32 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Added to serve client static files
 app.use(express.static(path.resolve(__dirname, 'client/build')));
-app.use("/images", express.static(path.join(__dirname, "public/images")));
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "public/images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name);
-  },
-});
-
-const upload = multer({ storage: storage });
-app.post("/upload", upload.single("file"), (req, res) => {
-  try {
-    return res.sendStatus(200);
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-// app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use("/comments", commentsRouter);
 app.use('/follow', followRouter);
-// app.use('/upload', uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -25,26 +25,47 @@ const EditForm = ({ show, setShow, currentUser, setCurrentUser }) => {
       city,
       about,
     };
+    // if (profilePicture) {
+    //   const data = new FormData();
+    //   const fileName = Date.now() + profilePicture.name;
+    //   data.append("name", fileName);
+    //   data.append("file", profilePicture);
+    //   newData.profilePicture = fileName;
+    //   try {
+    //     await axios.post("/upload", data);
+    //   } catch (err) {}
+    // }
+    // if (coverPicture) {
+    //   const data = new FormData();
+    //   const fileName = Date.now() + coverPicture.name;
+    //   data.append("name", fileName);
+    //   data.append("file", coverPicture);
+    //   newData.coverPicture = fileName;
     if (profilePicture) {
-      const data = new FormData();
-      const fileName = Date.now() + profilePicture.name;
-      data.append("name", fileName);
-      data.append("file", profilePicture);
-      newData.profilePicture = fileName;
-      try {
-        await axios.post("/upload", data);
-      } catch (err) {}
+      const formData = new FormData();
+      formData.append("file", profilePicture);
+      formData.append("upload_preset", "gmrptfso");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/doolsewfd/image/upload",
+        formData
+      );
+      newData.profilePicture = response.data.url;
     }
     if (coverPicture) {
-      const data = new FormData();
-      const fileName = Date.now() + coverPicture.name;
-      data.append("name", fileName);
-      data.append("file", coverPicture);
-      newData.coverPicture = fileName;
-      try {
-        await axios.post("/upload", data);
-      } catch (err) {}
+      const formData = new FormData();
+      formData.append("file", coverPicture);
+      formData.append("upload_preset", "gmrptfso");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/doolsewfd/image/upload",
+        formData
+      );
+      newData.coverPicture = response.data.url;
     }
+    // try {
+    //   await axios.post("/upload", data);
+    // } catch (err) {}
     await axios.patch(`/users/${currentUser._id}/edit`, newData);
     const res = await axios.get(`/users/${currentUser._id}`);
     setCurrentUser(res.data);

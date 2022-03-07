@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdMoreVert } from "react-icons/md";
 import { format } from "timeago.js";
-import { REACT_APP_PUBLIC_FOLDER } from "../../logic/keys";
 import Spinner from "../spinner/Spinner";
 import Comments from "../comments/Comments";
 import "./post.css";
@@ -64,8 +63,8 @@ const Post = ({ post, currentUser }) => {
                     className="postProfileImg"
                     src={
                       user?.profilePicture
-                        ? REACT_APP_PUBLIC_FOLDER + user?.profilePicture
-                        : REACT_APP_PUBLIC_FOLDER + "user.png"
+                        ? user?.profilePicture
+                        : "https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/user_hz8izs.png"
                     }
                     alt="postProfileImg"
                   />
@@ -82,11 +81,7 @@ const Post = ({ post, currentUser }) => {
             <div className="postCenter">
               <span className="postText">{post?.description}</span>
               {post?.img ? (
-                <img
-                  className="postImg"
-                  src={REACT_APP_PUBLIC_FOLDER + post?.img}
-                  alt="profileImg"
-                />
+                <img className="postImg" src={post?.img} alt="profileImg" />
               ) : null}
             </div>
             <div className="postBottom">
@@ -94,13 +89,13 @@ const Post = ({ post, currentUser }) => {
                 <img
                   onClick={countLikesHandler}
                   className="likeIcons"
-                  src={REACT_APP_PUBLIC_FOLDER + "like.png"}
+                  src="https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/like_kqglac.png"
                   alt="like"
                 />
                 <img
                   onClick={countLikesHandler}
                   className="likeIcons"
-                  src={REACT_APP_PUBLIC_FOLDER + "heart.png"}
+                  src="https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/heart_xmlp36.png"
                   alt="heart"
                 />
                 <span className="postLikeCounter">{likes} people like it</span>

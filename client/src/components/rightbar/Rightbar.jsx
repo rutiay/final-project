@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { REACT_APP_PUBLIC_FOLDER } from "../../logic/keys";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import { AiOutlineEdit } from "react-icons/ai";
 import EditForm from "../editForm/EditForm";
@@ -92,8 +91,8 @@ const Rightbar = ({ user, currentUser, setCurrentUser }) => {
                     <img
                       src={
                         friend.profilePicture
-                          ? REACT_APP_PUBLIC_FOLDER + friend.profilePicture
-                          : REACT_APP_PUBLIC_FOLDER + "user.png"
+                          ? friend.profilePicture
+                          : "https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/user_hz8izs.png"
                       }
                       alt="profileImg"
                       className="rightbarFollowingImg"

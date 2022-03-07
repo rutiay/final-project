@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { format } from "timeago.js";
-import { REACT_APP_PUBLIC_FOLDER } from "../../logic/keys";
 import "./comment.css";
 
 const Comment = ({ comment }) => {
@@ -21,8 +20,8 @@ const Comment = ({ comment }) => {
       <img
         src={
           user?.profilePicture
-            ? REACT_APP_PUBLIC_FOLDER + user?.profilePicture
-            : REACT_APP_PUBLIC_FOLDER + "user.png"
+            ? user?.profilePicture
+            : "https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/user_hz8izs.png"
         }
         alt="ProfileImg"
         className="imgOfUser"

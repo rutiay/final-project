@@ -1,5 +1,4 @@
 import React from "react";
-import { REACT_APP_PUBLIC_FOLDER } from "../../logic/keys";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 
@@ -14,8 +13,8 @@ const Friends = ({ result ,show, setShow }) => {
             <img
               src={
                 user?.profilePicture
-                  ? REACT_APP_PUBLIC_FOLDER + user?.profilePicture
-                  : REACT_APP_PUBLIC_FOLDER + "user.png"
+                  ? user?.profilePicture
+                  : "https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/user_hz8izs.png"
               }
               alt="profileUserImg"
               className="friendsListProfileImg"

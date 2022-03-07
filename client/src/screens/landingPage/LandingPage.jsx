@@ -29,7 +29,7 @@ const LandingPage = () => {
         </div>
       </div>
       <img
-        src="./media/Social-Network-Cover.png"
+        src="https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/Social-Network-Cover_kr0xco.png"
         alt="cover"
         className="landingPageCover"
       />

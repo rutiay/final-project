@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Comment from "../comment/Comment";
 import Spinner from "../spinner/Spinner";
 import Button from "react-bootstrap/Button";
-import { REACT_APP_PUBLIC_FOLDER } from "../../logic/keys";
 import "./comments.css";
 
 const Comments = ({
@@ -65,8 +64,8 @@ const Comments = ({
                 <img
                   src={
                     user?.profilePicture
-                      ? REACT_APP_PUBLIC_FOLDER + user?.profilePicture
-                      : REACT_APP_PUBLIC_FOLDER + "user.png"
+                      ? user?.profilePicture
+                      : "https://res.cloudinary.com/doolsewfd/image/upload/v1646679227/user_hz8izs.png"
                   }
                   alt="profileUserImg"
                   className="resultListProfileImg"
@@ -84,7 +83,7 @@ const Comments = ({
             {post.img ? (
               <img
                 className="postImgModal"
-                src={REACT_APP_PUBLIC_FOLDER + post?.img}
+                src={post?.img}
                 alt="postImg"
               />
             ) : null}
