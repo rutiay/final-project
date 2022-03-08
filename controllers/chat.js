@@ -2,7 +2,7 @@ const mongoDB = require("mongodb");
 require('dotenv').config();
 const MongoClient = mongoDB.MongoClient;
 const mongoURL = process.env.MONGOURL || "mongodb://localhost:27017";
-const ObjectId = mongoDB.ObjectId;
+// const ObjectId = mongoDB.ObjectId;
 const DATA_BASE = "socialMedia";
 
 const addConversation = async (req, res) => {

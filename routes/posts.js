@@ -10,7 +10,7 @@ const {
   likePost,
   getPosts,
   getUserPosts,
-} = require("../utils/posts.js");
+} = require("../controllers/posts.js");
 
 router.get("/:id", (req, res) => {
   getPost(req, res);

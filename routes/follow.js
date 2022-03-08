@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const { addToFollowings, removeFromFollowings } = require("../utils/follow.js");
+const { addToFollowings, removeFromFollowings } = require("../controllers/follow.js");
 
 router.patch("/:id/follow", (req, res) => {
   addToFollowings(req, res);

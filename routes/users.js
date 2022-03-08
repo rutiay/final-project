@@ -8,9 +8,9 @@ const {
   getAllUsers,
   editUser,
   getFriends,
-} = require("../utils/users.js");
+} = require("../controllers/users.js");
 
-const { register, addDetails } = require("../utils/newUser.js");
+const { register, addDetails } = require("../controllers/newUser.js");
 
 /* GET users listing. */
 router.get("/", (req, res) => {

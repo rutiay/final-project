@@ -178,67 +178,67 @@ const likePost = async (req, res) => {
   }
 };
 
-const addComment = async (req, res) => {
-  try {
-    const post = await findPost(req.params.id);
-    MongoClient.connect(mongoURL, (error, connection) => {
-      if (error) {
-        throw error;
-      }
-      const socialMediaDB = connection.db(DATA_BASE);
-      socialMediaDB
-        .collection("posts")
-        .findOneAndUpdate(
-          { _id: ObjectId(post._id) },
-          { $push: { comments: req.body } },
-          (err, response) => {
-            if (err) {
-              throw err;
-            }
-            if (response.value) {
-              res.status(200).send("you added a comment");
-            } else {
-              res.sendStatus(404);
-            }
-            connection.close();
-          }
-        );
-    });
-  } catch (error) {
-    res.status(500).send(error);
-  }
-};
+// const addComment = async (req, res) => {
+//   try {
+//     const post = await findPost(req.params.id);
+//     MongoClient.connect(mongoURL, (error, connection) => {
+//       if (error) {
+//         throw error;
+//       }
+//       const socialMediaDB = connection.db(DATA_BASE);
+//       socialMediaDB
+//         .collection("posts")
+//         .findOneAndUpdate(
+//           { _id: ObjectId(post._id) },
+//           { $push: { comments: req.body } },
+//           (err, response) => {
+//             if (err) {
+//               throw err;
+//             }
+//             if (response.value) {
+//               res.status(200).send("you added a comment");
+//             } else {
+//               res.sendStatus(404);
+//             }
+//             connection.close();
+//           }
+//         );
+//     });
+//   } catch (error) {
+//     res.status(500).send(error);
+//   }
+// };
 
-const deleteComment = async (req, res) => {
-  try {
-    const post = await findPost(req.params.id);
-    MongoClient.connect(mongoURL, (error, connection) => {
-      if (error) {
-        throw error;
-      }
-      const socialMediaDB = connection.db(DATA_BASE);
-      socialMediaDB
-        .collection("posts")
-        .findOneAndUpdate(
-          { _id: ObjectId(post._id) },
-          { $pull: { comments: req.body } },
-          (err, response) => {
-            if (err) {
-              throw err;
-            }
-            if (response.value) {
-              res.status(200).send("you deleted the comment");
-            } else {
-              res.sendStatus(404);
-            }
-            connection.close();
-          }
-        );
-    });
-  } catch (error) {
-    res.status(500).send(error);
-  }
-};
+// const deleteComment = async (req, res) => {
+//   try {
+//     const post = await findPost(req.params.id);
+//     MongoClient.connect(mongoURL, (error, connection) => {
+//       if (error) {
+//         throw error;
+//       }
+//       const socialMediaDB = connection.db(DATA_BASE);
+//       socialMediaDB
+//         .collection("posts")
+//         .findOneAndUpdate(
+//           { _id: ObjectId(post._id) },
+//           { $pull: { comments: req.body } },
+//           (err, response) => {
+//             if (err) {
+//               throw err;
+//             }
+//             if (response.value) {
+//               res.status(200).send("you deleted the comment");
+//             } else {
+//               res.sendStatus(404);
+//             }
+//             connection.close();
+//           }
+//         );
+//     });
+//   } catch (error) {
+//     res.status(500).send(error);
+//   }
+// };
 
 const addNewCommnet = async (req, res) => {
   MongoClient.connect(mongoURL, (error, connection) => {
@@ -371,8 +371,8 @@ module.exports = {
   likePost,
   getPosts,
   getUserPosts,
-  addComment,
-  deleteComment,
+  // addComment,
+  // deleteComment,
   addNewCommnet,
   getAllComments,
   getComment

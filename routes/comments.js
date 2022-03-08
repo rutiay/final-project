@@ -3,20 +3,20 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  addComment,
-  deleteComment,
+  // addComment,
+  // deleteComment,
   addNewCommnet,
   getAllComments,
   getComment,
-} = require("../utils/posts.js");
+} = require("../controllers/posts.js");
 
-router.patch("/:id/comment", (req, res) => {
-  addComment(req, res);
-});
+// router.patch("/:id/comment", (req, res) => {
+//   addComment(req, res);
+// });
 
-router.delete("/:id/comment", (req, res) => {
-  deleteComment(req, res);
-});
+// router.delete("/:id/comment", (req, res) => {
+//   deleteComment(req, res);
+// });
 
 router.post("/comment", (req, res) => {
   addNewCommnet(req, res);
